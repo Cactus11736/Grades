@@ -5,6 +5,8 @@
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import * as Sidebar from '$lib/components/ui/sidebar/index.js';
 	import { Spinner } from '$lib/components/ui/spinner';
+	import { initializeGradebookCatalog } from '$lib/grades/catalog.svelte';
+	import { getActiveGradebook } from '$lib/grades/gradebook';
 	import AppWindowMacIcon from '@lucide/svelte/icons/app-window-mac';
 	import BellIcon from '@lucide/svelte/icons/bell';
 	import CircleUserIcon from '@lucide/svelte/icons/circle-user';
@@ -17,14 +19,9 @@
 	import NotebookTextIcon from '@lucide/svelte/icons/notebook-text';
 	import SunIcon from '@lucide/svelte/icons/sun';
 	import { mode, toggleMode } from 'mode-watcher';
-	import type { Component } from 'svelte';
+	import { onMount, type Component } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { installPrompt } from '../../hooks.client';
-	import {
-		getCurrentGradebookState,
-		gradebooksState,
-		loadGradebooks
-	} from './grades/gradebook.svelte';
 	import { loadStudentInfo, studentInfoState } from './studentinfo/studentInfo.svelte';
 
 	function logOut() {
@@ -32,7 +29,7 @@
 		location.assign('/login');
 	}
 
-	const currentGradebookState = $derived(getCurrentGradebookState(gradebooksState));
+	const courses = $derived(getActiveGradebook()?.Courses.Course);
 
 	function installWebApp() {
 		$installPrompt.prompt?.();
@@ -85,7 +82,9 @@
 		}
 	};
 
-	loadGradebooks();
+	onMount(() => {
+		initializeGradebookCatalog();
+	});
 </script>
 
 {#snippet menuItem({
@@ -136,9 +135,9 @@
 				</Sidebar.MenuButton>
 
 				<svelte:boundary>
-					{#if currentGradebookState?.data}
+					{#if courses}
 						<Sidebar.MenuSub>
-							{#each currentGradebookState.data.Courses.Course as Course, index (Course._CourseID)}
+							{#each courses as Course, index (Course._CourseID)}
 								<Sidebar.MenuSubItem>
 									<Sidebar.MenuSubButton class="h-8 truncate text-base">
 										{#snippet child({ props })}
