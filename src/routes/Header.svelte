@@ -112,16 +112,16 @@
 				<a href="{base}/Grades" class="block px-4 py-3 text-foreground hover:bg-muted/50 transition-all duration-200 cursor-pointer hover:text-primary animate-in fade-in slide-in-from-left duration-300 whitespace-nowrap" onclick={closeMenu}>
 					Grades
 				</a>
-				<a href="/attendance" class="block px-4 py-3 text-foreground hover:bg-muted/50 transition-all duration-200 cursor-pointer hover:text-primary animate-in fade-in slide-in-from-left duration-300 delay-75 whitespace-nowrap" onclick={closeMenu}>
+				<a href="{base}/attendance" class="block px-4 py-3 text-foreground hover:bg-muted/50 transition-all duration-200 cursor-pointer hover:text-primary animate-in fade-in slide-in-from-left duration-300 delay-75 whitespace-nowrap" onclick={closeMenu}>
 					Attendance
 				</a>
-				<a href="/documents" class="block px-4 py-3 text-foreground hover:bg-muted/50 transition-all duration-200 cursor-pointer hover:text-primary animate-in fade-in slide-in-from-left duration-300 delay-100 whitespace-nowrap" onclick={closeMenu}>
+				<a href="{base}/documents" class="block px-4 py-3 text-foreground hover:bg-muted/50 transition-all duration-200 cursor-pointer hover:text-primary animate-in fade-in slide-in-from-left duration-300 delay-100 whitespace-nowrap" onclick={closeMenu}>
 					Documents
 				</a>
-				<a href="/mail" class="block px-4 py-3 text-foreground hover:bg-muted/50 transition-all duration-200 cursor-pointer hover:text-primary animate-in fade-in slide-in-from-left duration-300 delay-125 whitespace-nowrap" onclick={closeMenu}>
+				<a href="{base}/mail" class="block px-4 py-3 text-foreground hover:bg-muted/50 transition-all duration-200 cursor-pointer hover:text-primary animate-in fade-in slide-in-from-left duration-300 delay-125 whitespace-nowrap" onclick={closeMenu}>
 					Mail
 				</a>
-				<a href="/studentinfo" class="block px-4 py-3 text-foreground hover:bg-muted/50 transition-all duration-200 cursor-pointer hover:text-primary animate-in fade-in slide-in-from-left duration-300 delay-150 whitespace-nowrap" onclick={closeMenu}>
+				<a href="{base}/studentinfo" class="block px-4 py-3 text-foreground hover:bg-muted/50 transition-all duration-200 cursor-pointer hover:text-primary animate-in fade-in slide-in-from-left duration-300 delay-150 whitespace-nowrap" onclick={closeMenu}>
 					Student Info
 				</a>
 			</nav>

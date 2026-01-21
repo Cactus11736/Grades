@@ -20,7 +20,7 @@
 	if (browser && localStorage.getItem(LocalStorageKey.token) !== null) {
 		if (!acc.studentAccount) loadStudentAccount();
 
-		void goto(base + base + '/grades');
+		void goto(`${base}/Grades`);
 	}
 
 	let username: string = $state('');
@@ -54,7 +54,7 @@
 
 		loggingIn = false;
 
-		void goto(base + base + '/grades');
+		void goto(`${base}/Grades`); // ✅ correct
 	}
 
 </script>
@@ -93,7 +93,7 @@
 				</div>
 				<div class="text-center">
 					<h1 class="text-4xl font-bold animate-in fade-in duration-500 delay-100 bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">{brand}</h1>
-					<p class="text-sm text-muted-foreground mt-2 animate-in fade-in duration-500 delay-200">Advanced Grade Tracking</p>
+					<p class="text-sm text-muted-foreground mt-2 animate-in fade-in duration-500 delay-200">The Better StudentVue, R.I.P. GradeVue🪦🕊️</p>
 				</div>
 			</div>
 
@@ -105,7 +105,7 @@
 						id="username"
 						type="text"
 						bind:value={username}
-						placeholder="Enter username"
+						placeholder="StudentVue Username"
 						autocomplete="username"
 						required
 						class="transition-all duration-300 focus:ring-2 focus:ring-primary/50 cursor-text bg-background/50 border-white/10"
@@ -118,6 +118,7 @@
 						type="password"
 						id="password"
 						bind:value={password}
+						placeholder="StudentVue Password"
 						autocomplete="current-password"
 						required
 						class="transition-all duration-300 focus:ring-2 focus:ring-primary/50 cursor-text bg-background/50 border-white/10"
@@ -141,12 +142,13 @@
 			<!-- Footer -->
 			<div class="space-y-3 text-center animate-in fade-in duration-500 delay-300">
 				<p class="text-xs text-muted-foreground">
-					🔒 Your credentials stay on your device. We never see your password.
+					🔒 Your Login & Password Are Saved Locally, We Never See it!
 				</p>
 				<p class="text-xs text-muted-foreground">
-					School: <span class="font-semibold text-foreground">wa-nor-psv.edupoint.com</span>
+					School Domain: <span class="font-semibold text-foreground">wa-nor-psv.edupoint.com</span>
 				</p>
 			</div>
+			<Disclaimer />
 		</form>
 	</main>
 </div>

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { bgColorVariants } from '$lib';
 	import { Badge } from '$lib/components/ui/badge';
 	import { Button } from '$lib/components/ui/button';
@@ -45,7 +46,7 @@
 </script>
 
 <Button
-	href="{base}/grades/{index.toString()}"
+	href="{base}/Grades/{index.toString()}"
 	variant="card"
 	size="lg"
 	class="flex h-auto flex-col items-stretch gap-3 rounded-xl p-4 text-xl whitespace-normal sm:flex-row sm:justify-between transition-all duration-300 hover:scale-105 hover:shadow-lg"
